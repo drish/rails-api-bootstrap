@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+
+  redis:
+    image: redis:6.0
+    networks:
+      - default
+      - services
+
+  db:
+    image: postgres:12
+    ports:
+      - 5432:5432
+    networks:
+      - default
+      - services
+    environment:
+      - POSTGRES_PASSWORD=pwd
+      - POSTGRES_USER=docker
+
+  api:
+    build: .
+    ports:
+      - 4005:4005
+    volumes:
+      - .:/api
+    environment:
+      - RAILS_ENV=development
+    networks:
+      - default
+      - services
+    depends_on:
+      - db
+    command: "bundle exec puma -C /api/config/puma.rb"
+
+networks:
+  services:
+    name: api_network
+    external: true
