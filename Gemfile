@@ -60,3 +60,5 @@ gem "simplecov-lcov", "~> 0.8.0"
 gem "redis", "~> 5.0"
 
 gem "sidekiq", "~> 7.1"
+
+gem "rspec-sidekiq", "~> 3.1"

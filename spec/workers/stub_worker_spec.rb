@@ -6,7 +6,8 @@ RSpec.describe StubWorker do
 
   describe '#perform' do
     it 'should not raise' do
-      expect { described_class.new.perform(1) }.not_to raise_error
+      described_class.perform_async(1)
+      expect(StubWorker.jobs.size).to eq 1
     end
   end
 end
