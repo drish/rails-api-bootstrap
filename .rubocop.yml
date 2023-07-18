@@ -13,6 +13,8 @@ AllCops:
     - vendor/**/*
     - spec/**/*
     - config/*
+    - db/*
+
 Rails:
   Enabled: true # enable rubocop-rails cops
 Bundler/DuplicatedGem:
