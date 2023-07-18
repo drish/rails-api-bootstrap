@@ -2,7 +2,7 @@
 
 # rails-api-bootstrap
 
-Sidekiq setup
+Sidekiq setup (Direct Redis Worker approach)
 
 Compose (pg, redis, sidekiq worker, api)
 
