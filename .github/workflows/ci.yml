@@ -48,6 +48,10 @@ jobs:
         run: |
           bundle exec rake ci
 
+      - name: Run RuboCop
+        run: |
+          bundle exec rubocop
+
       - name: Add code coverage comment
         uses: romeovs/lcov-reporter-action@v0.2.16
         with:

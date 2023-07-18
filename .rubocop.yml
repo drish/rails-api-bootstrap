@@ -1,0 +1,21 @@
+require:
+  - standard
+  - rubocop-rspec
+  - rubocop-rails
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - public/**/*
+    - vendor/**/*
+    - spec/**/*
+    - config/*
+    - db/*
+
+Rails:
+  Enabled: true # enable rubocop-rails cops
+Bundler/DuplicatedGem:
+  Enabled: false
