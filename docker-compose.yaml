@@ -3,7 +3,7 @@ version: '3.4'
 services:
 
   redis:
-    image: redis:6.0
+    image: redis:7
     networks:
       - default
       - services
@@ -33,6 +33,18 @@ services:
     depends_on:
       - db
     command: "bundle exec puma -C /api/config/puma.rb"
+
+  worker:
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/api
+    networks:
+      - default
+      - services
+    depends_on:
+      - redis
+      - db
 
 networks:
   services:
