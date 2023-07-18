@@ -4,6 +4,8 @@
 require 'spec_helper'
 require 'pry-byebug'
 require 'database_cleaner'
+require 'sidekiq/testing'
+Sidekiq::Testing.fake! # fake is the default mode
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
