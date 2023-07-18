@@ -5,3 +5,7 @@
 Sidekiq setup
 
 Compose (pg, redis, sidekiq worker, api)
+
+Continuous Integration
+
+Rubocop (With StandardRb)
